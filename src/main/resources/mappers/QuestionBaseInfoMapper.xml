@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--        `id` BIGINT AUTO_INCREMENT COMMENT 'ID.',-->
+<!--        `question` VARCHAR(200)   COMMENT 'question.',-->
+<!--        `answer` VARCHAR(200)   COMMENT 'analyse.',-->
+<!--        `founder` BIGINT  COMMENT 'founder.',-->
+<!--        `subject` VARCHAR(200)  COMMENT 'subject.',-->
+<!--        `source` VARCHAR(200)  COMMENT 'source.',-->
+<mapper namespace="com.example.onlinelearning.dao.QuestionBaseInfoMapper">
+    <insert id="insert">
+    INSERT INTO question_base_info
+    (id,question,answer,founder,source,subject)
+    VALUES
+    (
+    #{id},
+    #{question},
+    #{answer},
+    #{founder},
+    #{source},
+    #{subject}
+    )
+    </insert>
+</mapper>
