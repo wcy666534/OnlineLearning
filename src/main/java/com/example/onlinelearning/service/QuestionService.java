@@ -1,9 +1,7 @@
 package com.example.onlinelearning.service;
 
-import com.example.onlinelearning.domain.QuestionBaseInfo;
+import com.example.onlinelearning.domain.Question;
 import com.example.onlinelearning.models.ServiceResponse;
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 /**
  * @Author: 作者
@@ -11,5 +9,5 @@ import org.springframework.stereotype.Service;
  * @Description: 致敬
  */
 public interface QuestionService {
-     ServiceResponse<Boolean> createQuestion(QuestionBaseInfo questionBadeInfo);
+     ServiceResponse<Boolean> createQuestion(Question questionBadeInfo);
 }

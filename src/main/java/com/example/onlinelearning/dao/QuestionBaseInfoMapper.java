@@ -1,6 +1,6 @@
 package com.example.onlinelearning.dao;
 
-import com.example.onlinelearning.domain.QuestionBaseInfo;
+import com.example.onlinelearning.domain.Question;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface QuestionBaseInfoMapper {
-    int insert(QuestionBaseInfo questionBaseInfo);
+    int insert(Question questionBaseInfo);
 }

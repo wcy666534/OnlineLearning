@@ -1,7 +1,7 @@
 package com.example.onlinelearning.service.serviceImpl;
 
 import com.example.onlinelearning.dao.QuestionBaseInfoMapper;
-import com.example.onlinelearning.domain.QuestionBaseInfo;
+import com.example.onlinelearning.domain.Question;
 import com.example.onlinelearning.models.ServiceResponse;
 import com.example.onlinelearning.service.QuestionService;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +20,7 @@ public class QuestionServiceImpl implements QuestionService {
     @Autowired
     private QuestionBaseInfoMapper questionBaseInfoMapper;
 
-    public ServiceResponse<Boolean> createQuestion(QuestionBaseInfo questionBadeInfo) {
+    public ServiceResponse<Boolean> createQuestion(Question questionBadeInfo) {
         log.info("questionBadeInfo" + questionBadeInfo);
         try {
             int successCount = questionBaseInfoMapper.insert(questionBadeInfo);

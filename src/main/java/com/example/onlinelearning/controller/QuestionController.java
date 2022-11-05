@@ -1,6 +1,6 @@
 package com.example.onlinelearning.controller;
 
-import com.example.onlinelearning.domain.QuestionBaseInfo;
+import com.example.onlinelearning.domain.Question;
 import com.example.onlinelearning.models.ServiceResponse;
 import com.example.onlinelearning.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class QuestionController {
         return "test success!";
     }
     @PostMapping ("/createQuestion")
-    public ServiceResponse<Boolean> createQuestion(@RequestBody QuestionBaseInfo questionBaseInfo){
+    public ServiceResponse<Boolean> createQuestion(@RequestBody Question questionBaseInfo){
         return questionService.createQuestion(questionBaseInfo);
     }
 }
