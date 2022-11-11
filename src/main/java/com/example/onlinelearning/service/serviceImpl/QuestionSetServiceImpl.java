@@ -38,7 +38,7 @@ public class QuestionSetServiceImpl implements QuestionSetService {
             System.err.println("creator is not exist");
             return ServiceResponse.buildErrorResponse(1, "creator is not exist");
         }
-        //檢查questionId是否存在及questionTypeId是否相同
+        //檢查questionId是否存在及disciplineId是否相同
         Long questionId[] = questionSetCreation.getQuestionId();
         Boolean flag = true;
         Long disciplineId= Long.valueOf(0);
@@ -57,8 +57,8 @@ public class QuestionSetServiceImpl implements QuestionSetService {
             }
         }
         if (flag ==false) {
-            System.err.println("questionTypeId is inconsistency");
-            return ServiceResponse.buildErrorResponse(1, "questionTypeId is inconsistency");
+            System.err.println("question is not exist or disciplineId is inconsistency");
+            return ServiceResponse.buildErrorResponse(1, "question is not exist or disciplineId is inconsistency");
         }
         try {
             QuestionSet questionSet = new QuestionSet(questionSetCreation.getId(), questionSetCreation.getName(), questionSetCreation.getDescription(),
@@ -78,5 +78,4 @@ public class QuestionSetServiceImpl implements QuestionSetService {
             return ServiceResponse.buildErrorResponse(1, "Error when insert question set");
         }
     }
-
 }
