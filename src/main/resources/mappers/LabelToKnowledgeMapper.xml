@@ -4,31 +4,31 @@
   <resultMap id="BaseResultMap" type="com.example.onlinelearning.domain.LabelToKnowledge">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="label_id" jdbcType="BIGINT" property="labelId" />
-    <result column="knowledge_id" jdbcType="BIGINT" property="knowledgeId" />
+    <result column="knowledge_point_id" jdbcType="BIGINT" property="knowledgePointId" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from label_to_knowledge
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.example.onlinelearning.domain.LabelToKnowledge">
-    insert into label_to_knowledge (id, label_id, knowledge_id
+    insert into label_to_knowledge ( label_id, knowledge_point_id
       )
-    values (#{id,jdbcType=BIGINT}, #{labelId,jdbcType=BIGINT}, #{knowledgeId,jdbcType=BIGINT}
+    values ( #{labelId,jdbcType=BIGINT}, #{knowledgePointId,jdbcType=BIGINT}
       )
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.example.onlinelearning.domain.LabelToKnowledge">
     update label_to_knowledge
     set label_id = #{labelId,jdbcType=BIGINT},
-      knowledge_id = #{knowledgeId,jdbcType=BIGINT}
+      knowledge_point_id = #{knowledgePointId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select id, label_id, knowledge_id
+    select id, label_id, knowledge_point_id
     from label_to_knowledge
     where id = #{id,jdbcType=BIGINT}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select id, label_id, knowledge_id
+    select id, label_id, knowledge_point_id
     from label_to_knowledge
   </select>
 </mapper>

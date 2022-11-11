@@ -1,6 +1,5 @@
 package com.example.onlinelearning.service;
 
-import com.example.onlinelearning.domain.Question;
 import com.example.onlinelearning.models.KnowledgePointCreation;
 import com.example.onlinelearning.models.ServiceResponse;
 

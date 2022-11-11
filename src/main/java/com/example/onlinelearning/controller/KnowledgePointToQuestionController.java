@@ -18,8 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class KnowledgePointToQuestionController {
     @Autowired
     private KnowledgePointToQuestionService knowledgePointToQuestionService;
+
     @RequestMapping("/create")
-    public ServiceResponse<Boolean> createKnowledgePointToQuestion(@RequestBody KnowledgePointToQuestion knowledgePointToQuestion){
+    public ServiceResponse<Boolean> createKnowledgePointToQuestion(@RequestBody KnowledgePointToQuestion knowledgePointToQuestion) {
         return knowledgePointToQuestionService.createKnowledgePointToQuestion(knowledgePointToQuestion);
     }
 }

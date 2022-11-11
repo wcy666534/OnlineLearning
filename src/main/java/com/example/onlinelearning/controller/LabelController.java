@@ -1,7 +1,6 @@
 package com.example.onlinelearning.controller;
 
 import com.example.onlinelearning.domain.Label;
-import com.example.onlinelearning.domain.Question;
 import com.example.onlinelearning.models.ServiceResponse;
 import com.example.onlinelearning.service.LabelService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class LabelController {
     @Autowired
     private LabelService labelService;
+
     @RequestMapping("/create")
-    public ServiceResponse<Boolean> createLabel(@RequestBody Label label){
+    public ServiceResponse<Boolean> createLabel(@RequestBody Label label) {
         return labelService.createLabel(label);
     }
 }

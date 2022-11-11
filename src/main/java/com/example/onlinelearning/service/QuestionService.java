@@ -2,7 +2,6 @@ package com.example.onlinelearning.service;
 
 import com.example.onlinelearning.domain.Question;
 import com.example.onlinelearning.models.ServiceResponse;
-import org.springframework.stereotype.Service;
 
 /**
  * @Author: 作者

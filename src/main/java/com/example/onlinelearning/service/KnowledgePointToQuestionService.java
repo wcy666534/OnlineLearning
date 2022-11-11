@@ -2,7 +2,6 @@ package com.example.onlinelearning.service;
 
 import com.example.onlinelearning.domain.KnowledgePointToQuestion;
 import com.example.onlinelearning.models.ServiceResponse;
-import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  * @Author: 作者

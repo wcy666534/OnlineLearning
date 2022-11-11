@@ -11,9 +11,9 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.example.onlinelearning.domain.LabelToQuestion">
-    insert into label_to_question (id, label_id, question_id
+    insert into label_to_question (label_id, question_id
       )
-    values (#{id,jdbcType=BIGINT}, #{labelId,jdbcType=BIGINT}, #{questionId,jdbcType=BIGINT}
+    values ( #{labelId,jdbcType=BIGINT}, #{questionId,jdbcType=BIGINT}
       )
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.example.onlinelearning.domain.LabelToQuestion">

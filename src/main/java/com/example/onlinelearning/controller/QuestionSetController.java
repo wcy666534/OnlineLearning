@@ -1,10 +1,7 @@
 package com.example.onlinelearning.controller;
 
-import com.example.onlinelearning.domain.Question;
-import com.example.onlinelearning.domain.QuestionSet;
 import com.example.onlinelearning.models.QuestionSetCreation;
 import com.example.onlinelearning.models.ServiceResponse;
-import com.example.onlinelearning.service.QuestionService;
 import com.example.onlinelearning.service.QuestionSetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,8 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class QuestionSetController {
     @Autowired
     private QuestionSetService questionSetService;
+
     @RequestMapping("/create")
-    public ServiceResponse<Boolean> createQuestionSet(@RequestBody QuestionSetCreation questionSetCreation){
+    public ServiceResponse<Boolean> createQuestionSet(@RequestBody QuestionSetCreation questionSetCreation) {
         return questionSetService.createQuestionSet(questionSetCreation);
     }
 }

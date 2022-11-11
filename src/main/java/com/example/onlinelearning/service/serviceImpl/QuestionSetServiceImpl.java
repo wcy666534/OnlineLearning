@@ -41,7 +41,7 @@ public class QuestionSetServiceImpl implements QuestionSetService {
         //檢查questionId是否存在及disciplineId是否相同
         Long questionId[] = questionSetCreation.getQuestionId();
         Boolean flag = true;
-        Long disciplineId= Long.valueOf(0);
+        Long disciplineId = Long.valueOf(0);
         for (int i = 0; i < questionId.length; i++) {
             if (questionMapper.selectByPrimaryKey(questionId[i]) == null) {
                 flag = false;
@@ -56,7 +56,7 @@ public class QuestionSetServiceImpl implements QuestionSetService {
                 }
             }
         }
-        if (flag ==false) {
+        if (flag == false) {
             System.err.println("question is not exist or disciplineId is inconsistency");
             return ServiceResponse.buildErrorResponse(1, "question is not exist or disciplineId is inconsistency");
         }

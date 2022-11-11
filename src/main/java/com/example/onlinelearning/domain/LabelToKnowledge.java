@@ -5,7 +5,7 @@ public class LabelToKnowledge {
 
     private Long labelId;
 
-    private Long knowledgeId;
+    private Long knowledgePointId;
 
     public Long getId() {
         return id;
@@ -23,11 +23,11 @@ public class LabelToKnowledge {
         this.labelId = labelId;
     }
 
-    public Long getKnowledgeId() {
-        return knowledgeId;
+    public Long getKnowledgePointId() {
+        return knowledgePointId;
     }
 
-    public void setKnowledgeId(Long knowledgeId) {
-        this.knowledgeId = knowledgeId;
+    public void setKnowledgePointId(Long knowledgePointId) {
+        this.knowledgePointId = knowledgePointId;
     }
 }

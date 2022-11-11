@@ -18,23 +18,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class LabelServiceImpl implements LabelService {
     @Autowired
-    private  LabelMapper  labelMapper;
+    private LabelMapper labelMapper;
     @Autowired
     private CreatorMapper creatorMapper;
-    public ServiceResponse<Boolean> createLabel(Label label){
-        log.info("label="+label);
+
+    public ServiceResponse<Boolean> createLabel(Label label) {
+        log.info("label=" + label);
         /*  参数检查*/
         //检查creatorId是否存在
-        if(creatorMapper.selectByPrimaryKey(label.getCreatorId())==null){
+        if (creatorMapper.selectByPrimaryKey(label.getCreatorId()) == null) {
             System.err.println("creator is not exist");
-            return ServiceResponse.buildErrorResponse(1,"creator is not exist");
+            return ServiceResponse.buildErrorResponse(1, "creator is not exist");
         }
         try {
-            int insertSuccessCount=labelMapper.insert(label);
-            if(insertSuccessCount>0){
+            int insertSuccessCount = labelMapper.insert(label);
+            if (insertSuccessCount > 0) {
                 return ServiceResponse.buildSuccessResponse(true);
-            }else {
-                return ServiceResponse.buildErrorResponse(1,"Error when insert label");
+            } else {
+                return ServiceResponse.buildErrorResponse(1, "Error when insert label");
             }
         } catch (Exception e) {
             log.error("Error when executing SQL: ", e);

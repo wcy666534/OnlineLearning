@@ -1,7 +1,5 @@
 package com.example.onlinelearning.service;
 
-import com.example.onlinelearning.domain.Question;
-import com.example.onlinelearning.domain.QuestionSet;
 import com.example.onlinelearning.models.QuestionSetCreation;
 import com.example.onlinelearning.models.ServiceResponse;
 
@@ -10,7 +8,7 @@ import com.example.onlinelearning.models.ServiceResponse;
  * @Date: 2022/11/11/9:54
  * @Description: 致敬
  */
-public interface QuestionSetService{
+public interface QuestionSetService {
     ServiceResponse<Boolean> createQuestionSet(QuestionSetCreation questionSetCreation);
 
 }
