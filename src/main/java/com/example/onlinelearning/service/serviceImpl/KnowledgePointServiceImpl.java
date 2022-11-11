@@ -36,7 +36,6 @@ public class KnowledgePointServiceImpl implements KnowledgePointService {
        log.info("knowledgePointCreation=" + knowledgePointCreation);
        /*  参数检查*/
        //检查creatorId是否存在
-
        if(creatorMapper.selectByPrimaryKey(knowledgePointCreation.getCreatorId())==null){
            System.err.println("creator is not exist");
            return ServiceResponse.buildErrorResponse(1,"creator is not exist");

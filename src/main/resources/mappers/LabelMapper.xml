@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.onlinelearning.dao.LabelMapper">
+  <resultMap id="BaseResultMap" type="com.example.onlinelearning.domain.Label">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="creator_id" jdbcType="BIGINT" property="creatorId" />
+    <result column="creation_time" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="update_operator_id" jdbcType="BIGINT" property="updateOperatorId" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from label
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.onlinelearning.domain.Label">
+    insert into label (name, creator_id, update_operator_id)
+    values ( #{name,jdbcType=VARCHAR}, #{creatorId,jdbcType=BIGINT}, #{creatorId,jdbcType=BIGINT} )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.onlinelearning.domain.Label">
+    update label
+    set name = #{name,jdbcType=VARCHAR},
+      creator_id = #{creatorId,jdbcType=BIGINT},
+      creation_time = #{creationTime,jdbcType=TIMESTAMP},
+      update_operator_id = #{updateOperatorId,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, name, creator_id, creation_time, update_operator_id, update_time
+    from label
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, creator_id, creation_time, update_operator_id, update_time
+    from label
+  </select>
+</mapper>
