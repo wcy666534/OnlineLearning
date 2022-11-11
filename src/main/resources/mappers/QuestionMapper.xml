@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.onlinelearning.dao.QuestionMapper">
+  <resultMap id="BaseResultMap" type="com.example.onlinelearning.domain.Question">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="question_body_url" jdbcType="VARCHAR" property="questionBodyUrl" />
+    <result column="answer_body_url" jdbcType="VARCHAR" property="answerBodyUrl" />
+    <result column="discipline_id" jdbcType="BIGINT" property="disciplineId" />
+    <result column="source_type_id" jdbcType="INTEGER" property="sourceTypeId" />
+    <result column="difficulty_type_id" jdbcType="INTEGER" property="difficultyTypeId" />
+    <result column="question_type_id" jdbcType="INTEGER" property="questionTypeId" />
+    <result column="estimated_time_to_finish" jdbcType="INTEGER" property="estimatedTimeToFinish" />
+    <result column="creator_id" jdbcType="BIGINT" property="creatorId" />
+    <result column="creation_time" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="update_operator_id" jdbcType="BIGINT" property="updateOperatorId" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from question
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.onlinelearning.domain.Question">
+    insert into question (id, question_body_url, answer_body_url, 
+      discipline_id, source_type_id, difficulty_type_id, 
+      question_type_id, estimated_time_to_finish, 
+      creator_id,  update_operator_id)
+    values (#{id,jdbcType=BIGINT}, #{questionBodyUrl,jdbcType=VARCHAR}, #{answerBodyUrl,jdbcType=VARCHAR}, 
+      #{disciplineId,jdbcType=BIGINT}, #{sourceTypeId,jdbcType=INTEGER}, #{difficultyTypeId,jdbcType=INTEGER}, 
+      #{questionTypeId,jdbcType=INTEGER}, #{estimatedTimeToFinish,jdbcType=INTEGER}, 
+      #{creatorId,jdbcType=BIGINT}, #{creatorId,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.onlinelearning.domain.Question">
+    update question
+    set question_body_url = #{questionBodyUrl,jdbcType=VARCHAR},
+      answer_body_url = #{answerBodyUrl,jdbcType=VARCHAR},
+      discipline_id = #{disciplineId,jdbcType=BIGINT},
+      source_type_id = #{sourceTypeId,jdbcType=INTEGER},
+      difficulty_type_id = #{difficultyTypeId,jdbcType=INTEGER},
+      question_type_id = #{questionTypeId,jdbcType=INTEGER},
+      estimated_time_to_finish = #{estimatedTimeToFinish,jdbcType=INTEGER},
+      creator_id = #{creatorId,jdbcType=BIGINT},
+      creation_time = #{creationTime,jdbcType=TIMESTAMP},
+      update_operator_id = #{updateOperatorId,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, question_body_url, answer_body_url, discipline_id, source_type_id, difficulty_type_id, 
+    question_type_id, estimated_time_to_finish, creator_id, creation_time, update_operator_id, 
+    update_time
+    from question
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, question_body_url, answer_body_url, discipline_id, source_type_id, difficulty_type_id, 
+    question_type_id, estimated_time_to_finish, creator_id, creation_time, update_operator_id, 
+    update_time
+    from question
+  </select>
+</mapper>

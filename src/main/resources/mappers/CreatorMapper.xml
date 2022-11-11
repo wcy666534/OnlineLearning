@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.onlinelearning.dao.CreatorMapper">
+  <resultMap id="BaseResultMap" type="com.example.onlinelearning.domain.Creator">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="encrypted_password" jdbcType="VARCHAR" property="encryptedPassword" />
+    <result column="creation_time" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from creator
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.onlinelearning.domain.Creator">
+    insert into creator (id, account, nickname, 
+      avatar_url, phone_number, email, 
+      encrypted_password, creation_time, update_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{account,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
+      #{avatarUrl,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{encryptedPassword,jdbcType=VARCHAR}, #{creationTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.onlinelearning.domain.Creator">
+    update creator
+    set account = #{account,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      avatar_url = #{avatarUrl,jdbcType=VARCHAR},
+      phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      encrypted_password = #{encryptedPassword,jdbcType=VARCHAR},
+      creation_time = #{creationTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, account, nickname, avatar_url, phone_number, email, encrypted_password, 
+    creation_time, update_time
+    from creator
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, account, nickname, avatar_url, phone_number, email, encrypted_password, 
+    creation_time, update_time
+    from creator
+  </select>
+</mapper>
