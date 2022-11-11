@@ -31,7 +31,7 @@ public class QuestionSetServiceImpl implements QuestionSetService {
     private QuestionMapper questionMapper;
 
     public ServiceResponse<Boolean> createQuestionSet(QuestionSetCreation questionSetCreation) {
-        log.info("question=" + questionSetCreation);
+        log.info("questionSetCreation=" + questionSetCreation);
         /*  参数检查*/
         //检查creatorId是否存在
         if (creatorMapper.selectByPrimaryKey(questionSetCreation.getCreatorId()) == null) {
@@ -62,7 +62,7 @@ public class QuestionSetServiceImpl implements QuestionSetService {
         }
         try {
             QuestionSet questionSet = new QuestionSet(questionSetCreation.getId(), questionSetCreation.getName(), questionSetCreation.getDescription(),
-                    questionSetCreation.getDisciplineId(), questionSetCreation.getCreatorId(), questionSetCreation.getCreationTime(), questionSetCreation.getUpdateOperatorId(), questionSetCreation.getUpdateTime());
+                    questionSetCreation.getDisciplineId(), questionSetCreation.getCreatorId());
             int insertSuccessCount = questionSetMapper.insert(questionSet);
             for (int i = 0; i < questionId.length; i++) {
                 QuestionSetToQuestion questionSetToQuestion = new QuestionSetToQuestion(questionSetCreation.getId(), questionId[i]);

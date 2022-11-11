@@ -6,14 +6,14 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
-public class QuestionSet {
+public class KnowledgePoint {
     private Long id;
+
+    private Long disciplineId;
 
     private String name;
 
-    private String description;
-
-    private Long disciplineId;
+    private String descriptionUrl;
 
     private Long creatorId;
 
@@ -23,11 +23,11 @@ public class QuestionSet {
 
     private Date updateTime;
 
-    public QuestionSet(Long id, String name, String description, Long disciplineId, Long creatorId) {
+    public KnowledgePoint(Long id, Long disciplineId, String name, String descriptionUrl, Long creatorId) {
         this.id = id;
-        this.name = name;
-        this.description = description;
         this.disciplineId = disciplineId;
+        this.name = name;
+        this.descriptionUrl = descriptionUrl;
         this.creatorId = creatorId;
     }
 
@@ -39,6 +39,14 @@ public class QuestionSet {
         this.id = id;
     }
 
+    public Long getDisciplineId() {
+        return disciplineId;
+    }
+
+    public void setDisciplineId(Long disciplineId) {
+        this.disciplineId = disciplineId;
+    }
+
     public String getName() {
         return name;
     }
@@ -47,20 +55,12 @@ public class QuestionSet {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescriptionUrl() {
+        return descriptionUrl;
     }
 
-    public void setDescription(String description) {
-        this.description = description == null ? null : description.trim();
-    }
-
-    public Long getDisciplineId() {
-        return disciplineId;
-    }
-
-    public void setDisciplineId(Long disciplineId) {
-        this.disciplineId = disciplineId;
+    public void setDescriptionUrl(String descriptionUrl) {
+        this.descriptionUrl = descriptionUrl == null ? null : descriptionUrl.trim();
     }
 
     public Long getCreatorId() {
