@@ -4,9 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-@AllArgsConstructor
-@NoArgsConstructor
-public class KnowledgePoint {
+
+public class KnowledgePoint extends KnowledgePointToQuestion {
     private Long id;
 
     private Long disciplineId;
