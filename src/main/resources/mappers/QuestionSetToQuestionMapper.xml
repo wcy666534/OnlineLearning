@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.onlinelearning.dao.QuestionSetToQuestionMapper">
+  <resultMap id="BaseResultMap" type="com.example.onlinelearning.domain.QuestionSetToQuestion">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="question_set_id" jdbcType="BIGINT" property="questionSetId" />
+    <result column="question_id" jdbcType="BIGINT" property="questionId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from question_set_to_question
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.onlinelearning.domain.QuestionSetToQuestion">
+    insert into question_set_to_question (id, question_set_id, question_id
+      )
+    values (#{id,jdbcType=BIGINT}, #{questionSetId,jdbcType=BIGINT}, #{questionId,jdbcType=BIGINT}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.onlinelearning.domain.QuestionSetToQuestion">
+    update question_set_to_question
+    set question_set_id = #{questionSetId,jdbcType=BIGINT},
+      question_id = #{questionId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, question_set_id, question_id
+    from question_set_to_question
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, question_set_id, question_id
+    from question_set_to_question
+  </select>
+</mapper>

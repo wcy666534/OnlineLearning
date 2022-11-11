@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.onlinelearning.dao.QuestionSetMapper">
+  <resultMap id="BaseResultMap" type="com.example.onlinelearning.domain.QuestionSet">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="discipline_id" jdbcType="BIGINT" property="disciplineId" />
+    <result column="creator_id" jdbcType="BIGINT" property="creatorId" />
+    <result column="creation_time" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="update_operator_id" jdbcType="BIGINT" property="updateOperatorId" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from question_set
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.onlinelearning.domain.QuestionSet">
+    insert into question_set (id, name, description, 
+      discipline_id, creator_id, update_operator_id)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{disciplineId,jdbcType=BIGINT}, #{creatorId,jdbcType=BIGINT},#{creatorId,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.onlinelearning.domain.QuestionSet">
+    update question_set
+    set name = #{name,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      discipline_id = #{disciplineId,jdbcType=BIGINT},
+      creator_id = #{creatorId,jdbcType=BIGINT},
+      creation_time = #{creationTime,jdbcType=TIMESTAMP},
+      update_operator_id = #{updateOperatorId,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, name, description, discipline_id, creator_id, creation_time, update_operator_id, 
+    update_time
+    from question_set
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, description, discipline_id, creator_id, creation_time, update_operator_id, 
+    update_time
+    from question_set
+  </select>
+</mapper>
