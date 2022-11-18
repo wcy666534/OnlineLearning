@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.onlinelearning.dao.LabelToKnowledgeMapper">
-  <resultMap id="BaseResultMap" type="com.example.onlinelearning.domain.LabelToKnowledge">
+<mapper namespace="com.example.onlineLearning.dao.LabelToKnowledgeMapper">
+  <resultMap id="BaseResultMap" type="com.example.onlineLearning.domain.LabelToKnowledge">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="label_id" jdbcType="BIGINT" property="labelId" />
     <result column="knowledge_point_id" jdbcType="BIGINT" property="knowledgePointId" />
@@ -10,13 +10,13 @@
     delete from label_to_knowledge
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.example.onlinelearning.domain.LabelToKnowledge">
+  <insert id="insert" parameterType="com.example.onlineLearning.domain.LabelToKnowledge">
     insert into label_to_knowledge ( label_id, knowledge_point_id
       )
     values ( #{labelId,jdbcType=BIGINT}, #{knowledgePointId,jdbcType=BIGINT}
       )
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.example.onlinelearning.domain.LabelToKnowledge">
+  <update id="updateByPrimaryKey" parameterType="com.example.onlineLearning.domain.LabelToKnowledge">
     update label_to_knowledge
     set label_id = #{labelId,jdbcType=BIGINT},
       knowledge_point_id = #{knowledgePointId,jdbcType=BIGINT}

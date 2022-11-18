@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.onlinelearning.dao.QuestionMapper">
-  <resultMap id="BaseResultMap" type="com.example.onlinelearning.domain.Question">
+<mapper namespace="com.example.onlineLearning.dao.QuestionMapper">
+  <resultMap id="BaseResultMap" type="com.example.onlineLearning.domain.Question">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="question_body_url" jdbcType="VARCHAR" property="questionBodyUrl" />
     <result column="answer_body_url" jdbcType="VARCHAR" property="answerBodyUrl" />
@@ -19,7 +19,7 @@
     delete from question
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.example.onlinelearning.domain.Question">
+  <insert id="insert" parameterType="com.example.onlineLearning.domain.Question">
     insert into question (id, question_body_url, answer_body_url, 
       discipline_id, source_type_id, difficulty_type_id, 
       question_type_id, estimated_time_to_finish, 
@@ -29,7 +29,7 @@
       #{questionTypeId,jdbcType=INTEGER}, #{estimatedTimeToFinish,jdbcType=INTEGER}, 
       #{creatorId,jdbcType=BIGINT}, #{creatorId,jdbcType=BIGINT})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.example.onlinelearning.domain.Question">
+  <update id="updateByPrimaryKey" parameterType="com.example.onlineLearning.domain.Question">
     update question
     set question_body_url = #{questionBodyUrl,jdbcType=VARCHAR},
       answer_body_url = #{answerBodyUrl,jdbcType=VARCHAR},

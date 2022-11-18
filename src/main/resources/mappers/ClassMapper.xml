@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.onlineLearning.dao.ClassMapper">
+    <resultMap id="BaseResultMap" type="com.example.onlineLearning.domain.Class">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="major_id" jdbcType="BIGINT" property="majorId"/>
+        <result column="start_date" jdbcType="DATE" property="startDate"/>
+        <result column="end_date" jdbcType="DATE" property="endDate"/>
+        <result column="creator_id" jdbcType="BIGINT" property="creatorId"/>
+        <result column="creation_time" jdbcType="TIMESTAMP" property="creationTime"/>
+        <result column="update_operator_id" jdbcType="BIGINT" property="updateOperatorId"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete
+        from class
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.example.onlineLearning.domain.Class">
+        insert into class (name, major_id,
+                           start_date, end_date, creator_id,
+                           update_operator_id)
+        values (#{name,jdbcType=VARCHAR}, #{majorId,jdbcType=BIGINT},
+                #{startDate,jdbcType=DATE}, #{endDate,jdbcType=DATE}, #{creatorId,jdbcType=BIGINT},
+                #{creatorId,jdbcType=BIGINT})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.example.onlineLearning.domain.Class">
+        update class
+        set name               = #{name,jdbcType=VARCHAR},
+            major_id           = #{majorId,jdbcType=BIGINT},
+            start_date         = #{startDate,jdbcType=DATE},
+            end_date           = #{endDate,jdbcType=DATE},
+            creator_id         = #{creatorId,jdbcType=BIGINT},
+            creation_time      = #{creationTime,jdbcType=TIMESTAMP},
+            update_operator_id = #{updateOperatorId,jdbcType=BIGINT},
+            update_time        = #{updateTime,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select id,
+               name,
+               major_id,
+               start_date,
+               end_date,
+               creator_id,
+               creation_time,
+               update_operator_id,
+               update_time
+        from class
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select id,
+               name,
+               major_id,
+               start_date,
+               end_date,
+               creator_id,
+               creation_time,
+               update_operator_id,
+               update_time
+        from class
+    </select>
+</mapper>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.onlinelearning.dao.LabelToQuestionMapper">
-  <resultMap id="BaseResultMap" type="com.example.onlinelearning.domain.LabelToQuestion">
+<mapper namespace="com.example.onlineLearning.dao.LabelToQuestionMapper">
+  <resultMap id="BaseResultMap" type="com.example.onlineLearning.domain.LabelToQuestion">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="label_id" jdbcType="BIGINT" property="labelId" />
     <result column="question_id" jdbcType="BIGINT" property="questionId" />
@@ -10,13 +10,13 @@
     delete from label_to_question
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.example.onlinelearning.domain.LabelToQuestion">
+  <insert id="insert" parameterType="com.example.onlineLearning.domain.LabelToQuestion">
     insert into label_to_question (label_id, question_id
       )
     values ( #{labelId,jdbcType=BIGINT}, #{questionId,jdbcType=BIGINT}
       )
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.example.onlinelearning.domain.LabelToQuestion">
+  <update id="updateByPrimaryKey" parameterType="com.example.onlineLearning.domain.LabelToQuestion">
     update label_to_question
     set label_id = #{labelId,jdbcType=BIGINT},
       question_id = #{questionId,jdbcType=BIGINT}
