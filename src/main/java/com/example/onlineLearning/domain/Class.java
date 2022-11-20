@@ -2,6 +2,11 @@ package com.example.onlineLearning.domain;
 
 import java.util.Date;
 
+// SchoolClass
+// 3 places to modify:
+// 1. Domain
+// 2. Mapper interface
+// 3. Mapper.xml
 public class Class {
     private Long id;
 

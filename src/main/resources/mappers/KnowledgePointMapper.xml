@@ -43,4 +43,20 @@
     update_time
     from knowledge_point
   </select>
+
+  <select id="selectByPrimaryKeys" resultMap="BaseResultMap">
+    select id, discipline_id, name, description_url, creator_id, creation_time, update_operator_id,
+           update_time
+    from knowledge_point
+    where id IN
+<!--        <foreach collection=""-->
+  </select>
+
+  <select id="countByPrimaryKeys" resultMap="BaseResultMap">
+    -- SELECT id
+    select COUNT(*)
+    from knowledge_point
+    where id IN
+    <!--        <foreach collection=""-->
+  </select>
 </mapper>

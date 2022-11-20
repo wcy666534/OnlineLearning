@@ -13,4 +13,8 @@ public interface KnowledgePointMapper {
     List<KnowledgePoint> selectAll();
 
     int updateByPrimaryKey(KnowledgePoint row);
+
+    List<KnowledgePoint> selectByPrimaryKeys(List<Long> ids);
+
+    int countByPrimaryKeys(List<Long> ids);
 }

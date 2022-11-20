@@ -10,11 +10,10 @@
         <version>2.6.3</version>
         <relativePath/>
     </parent>
-    <groupId>org.angryfood</groupId>
-    <artifactId>angry-food</artifactId>
+    <groupId>com.example.onlinelearning</groupId>
+    <artifactId>OnlineLearning</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
-    <name>angry-food</name>
+    <name>OnlineLearning</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -108,7 +107,12 @@
             <artifactId>poi-ooxml-schemas</artifactId>
             <version>4.1.2</version>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/com.alibaba.fastjson2/fastjson2 -->
+        <dependency>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
+            <version>2.0.19</version>
+        </dependency>
 
     </dependencies>
 

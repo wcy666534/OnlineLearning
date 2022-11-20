@@ -1,4 +1,4 @@
-package com.example.onlineLearning.service.serviceImpl;
+package com.example.onlineLearning.service.impl;
 
 import com.example.onlineLearning.dao.CreatorMapper;
 import com.example.onlineLearning.dao.QuestionMapper;
@@ -39,14 +39,14 @@ public class QuestionSetServiceImpl implements QuestionSetService {
             return ServiceResponse.buildErrorResponse(1, "creator is not exist");
         }
         //檢查questionId是否存在及disciplineId是否相同
-        Long questionId[] = questionSetCreation.getQuestionId();
-        Boolean flag = true;
-        Long disciplineId = Long.valueOf(0);
+        Long[] questionId = questionSetCreation.getQuestionId();
+        boolean flag = true;
+        Long disciplineId = 0L;
         for (int i = 0; i < questionId.length; i++) {
             if (questionMapper.selectByPrimaryKey(questionId[i]) == null) {
                 flag = false;
             }
-            if (flag == true) {
+            if (flag) {
                 if (i == 0) {
                     disciplineId = questionMapper.selectByPrimaryKey(questionId[i]).getDisciplineId();
                 } else {
@@ -56,7 +56,7 @@ public class QuestionSetServiceImpl implements QuestionSetService {
                 }
             }
         }
-        if (flag == false) {
+        if (!flag) {
             System.err.println("question is not exist or disciplineId is inconsistency");
             return ServiceResponse.buildErrorResponse(1, "question is not exist or disciplineId is inconsistency");
         }
@@ -68,6 +68,7 @@ public class QuestionSetServiceImpl implements QuestionSetService {
                 QuestionSetToQuestion questionSetToQuestion = new QuestionSetToQuestion(questionSetCreation.getId(), questionId[i]);
                 questionSetToQuestionMapper.insert(questionSetToQuestion);
             }
+            // <foreach>
             if (insertSuccessCount > 0) {
                 return ServiceResponse.buildSuccessResponse(true);
             } else {
