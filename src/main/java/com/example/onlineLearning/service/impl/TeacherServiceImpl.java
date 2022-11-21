@@ -1,4 +1,4 @@
-package com.example.onlineLearning.service.serviceImpl;
+package com.example.onlineLearning.service.impl;
 
 import com.example.onlineLearning.dao.TeacherMapper;
 import com.example.onlineLearning.domain.Teacher;

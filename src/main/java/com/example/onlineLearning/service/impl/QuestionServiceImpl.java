@@ -1,4 +1,4 @@
-package com.example.onlineLearning.service.serviceImpl;
+package com.example.onlineLearning.service.impl;
 
 import com.example.onlineLearning.dao.CreatorMapper;
 import com.example.onlineLearning.dao.DisciplineMapper;
@@ -40,6 +40,7 @@ public class QuestionServiceImpl implements QuestionService {
 
 
         //检查difficultyTypeId是否为0,1,2
+        // getDifficultyTypeId >= 0 && getDifficultyTypeId <= 2
         if (question.getDifficultyTypeId() != 0 && question.getDifficultyTypeId() != 1 && question.getDifficultyTypeId() != 2) {
             System.err.println("DifficultyTypeId is error");
             return ServiceResponse.buildErrorResponse(1, "DifficultyTypeId is error");
@@ -47,7 +48,12 @@ public class QuestionServiceImpl implements QuestionService {
         //检查questionTypeId是否为0,1,2,3
         Boolean flag = false;
         List<Integer> questionTypeIdList = new ArrayList<Integer>(Arrays.asList(0, 1, 2, 3));
+        //region for循环快速结束，return
         for (int i = 0; i < questionTypeIdList.size(); i++) {
+            // .equals()
+            // int i
+            // Integer j
+            // i == j
             if (question.getQuestionTypeId() == questionTypeIdList.get(i)) {
                 flag = true;
             }
@@ -56,6 +62,7 @@ public class QuestionServiceImpl implements QuestionService {
             System.err.println("questionTypeId is error");
             return ServiceResponse.buildErrorResponse(1, "questionTypeId is error");
         }
+        //endregion
         //检查creatorId是否存在
         if (creatorMapper.selectByPrimaryKey(question.getCreatorId()) == null) {
             System.err.println("creator is not exist");

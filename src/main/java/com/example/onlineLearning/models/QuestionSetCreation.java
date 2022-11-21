@@ -12,9 +12,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+// QuestionSetCreationParam
 public class QuestionSetCreation {
     private Long id;
-    private Long questionId[];
+    private Long[] questionId;
     private String name;
     private String description;
     private Long disciplineId;

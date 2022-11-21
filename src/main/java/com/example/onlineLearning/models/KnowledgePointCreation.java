@@ -18,5 +18,5 @@ public class KnowledgePointCreation {
     private String name;
     private String descriptionUrl;
     private Long creatorId;
-    private Long preKnowledgePoint[];
+    private Long[] preKnowledgePoint;
 }
